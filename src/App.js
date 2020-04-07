@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import HomePage from './routes/HomePage/HomePage';
+import LoginPage from './routes/LoginPage/LoginPage';
+import AccountPage from './routes/AccountPage/AccountPage';
+import TransactionPage from './routes/TransactionPage/TransactionPage';
+import CategoryPage from './routes/CategoryPage/CategoryPage';
+import ReportsPage from './routes/ReportsPage/ReportsPage';
+import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
-export default App;
+import Nav from './components/Nav/Nav'
+
+export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+
+    }
+  }
+
+  render() {
+    return (
+      <div className='app'>
+        <nav className='navbar'>
+          <Nav />
+        </nav>
+
+        <main className='mainSection'>
+          <Switch>
+            <Route
+              exact path='/'
+              component={HomePage} />
+            <Route
+              path='/authentication'
+              component={LoginPage} />
+            <Route
+              exact path='/:accountId'
+              component={AccountPage} />
+              <Route
+              path='/:accountId/add-transaction'
+              component={TransactionPage} />
+              <Route
+              path='/:accountId/add-category'
+              component={CategoryPage} />
+              <Route
+              path='/:accountId/reports'
+              component={ReportsPage} />
+              <Route
+              component={NotFoundPage} />
+          </Switch>
+        </main>
+
+
+          <footer>Footer</footer>
+      </div>
+
+    );
+  }
+}
