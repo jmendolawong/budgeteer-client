@@ -34,25 +34,7 @@ export default function HomePage() {
         <p> [<em>placeholder for pie chart/graphs</em>]</p>
         <p>Visualize your spending habits. See the graphs and charts of your spending from the past 30 days. Understand where most of your spending habits reside</p>
       </section>
-
-      <section>
-        <header>
-          <h3>Sign Up</h3>
-        </header>
-
-        <form className="signup-form">
-          <div className='signup-input'>
-            <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Porthos" />
-          </div>
-          <div className='signup-input'>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
-          </div>
-          <button type="submit">Sign Up</button>
-        </form>
-      </section>
-
+      
     </div >
   );
 

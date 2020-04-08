@@ -8,11 +8,11 @@ export default function RegisterPage() {
     <div className='RegisterPage'>
       <p id='register'>Already have an account? <Link to='/authentication'>Log in.</Link></p>
       <form className="register-form">
-        <div className="register-user">
+        <div className="register-input">
           <label htmlFor='user'>Username: </label>
-          <input type='text' id='user' name='user' />
+          <input type='text' id='user' name='user' placeholder='Porthos'/>
         </div>
-        <div className="register-password">
+        <div className="register-input">
           <label htmlFor='password'>Password: </label>
           <input type='password' id='password' name='password' />
         </div>
