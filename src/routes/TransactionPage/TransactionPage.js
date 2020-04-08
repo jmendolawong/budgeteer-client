@@ -21,7 +21,7 @@ export default function TransactionPage() {
             <option value="utilities">Utilities</option>
           </select>
           <div class="transaction-date">
-            <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" /> .
+            <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" />
           <input type="number" name="date-day" class="date-day" placeholder="01" min="1" max="31" required="" />
             <input type="number" name="date-year" class="date-year" placeholder="2020" min="2019" max="2020" required="" />
           </div>
@@ -37,6 +37,7 @@ export default function TransactionPage() {
             <label for='memo'>Note/memo</label>
             <textarea id='memo' name='memo' rows='15'></textarea>
           </div>
+          <button type='submit' id='transaction-submit'>Add transaction</button>
         </form>
       </section>
 

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+}
+
+nav, footer {
+  background: #aaa;
+  padding: 3px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+ul {
+  list-style-type: none;
+  text-align: right;
+  margin: 5px 0;
+}
+
+li {
+  display: inline-block;
+  margin: 3px 15px;
+}
+
+header {
+  padding: 45px 15px;
+}
+
+section {
+  min-height: 300;
+  padding: 25px;
+}
+
+section:nth-child(even) {
+  background: #ccc;
+}
+
+section:nth-child(odd) {
+  background: #eee;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+p+p {
+  margin-top: 15px;
+}

@@ -1,0 +1,46 @@
+
+.nav {
+  background: #aaa;
+  position: fixed;
+  list-style-type: none;
+  text-align: right;
+  margin: 5px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 3px;
+
+  
+}
+
+.nav a {
+  display: inline-block;
+  margin: 3px 15px;
+}
+  
+header {
+  padding: 45px 15px;
+}
+
+section {
+  min-height: 300;
+  padding: 25px;
+}
+
+section:nth-child(even) {
+  background: #ccc;
+}
+
+section:nth-child(odd) {
+  background: #eee;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+p+p {
+  margin-top: 15px;
+}

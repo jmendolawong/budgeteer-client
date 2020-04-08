@@ -1,7 +1,7 @@
 import React from 'react';
-//import './AccountPage.css';
+import './AccountPage.css';
 
-export default function AccountPage() {
+export default function AccountPage(props) {
 
   return (
     <div className='accountPage'>
@@ -11,52 +11,52 @@ export default function AccountPage() {
 
       <section>
         <header>
-          <h3>Groceries</h3>
-          <p>4/6/2020</p>
+          <h3>{props.store[0].category}</h3>
+          <p>{props.store[0].date}</p>
         </header>
         <dl>
           <dt>Cost</dt>
-          <dd>$50</dd>
+          <dd>${props.store[0].cost}</dd>
           <dt>Payee</dt>
-          <dd>Kroger</dd>
+          <dd>{props.store[0].payee}</dd>
         </dl>
-        <blockquote>Praesent sagittis a mi sit amet dictum. Donec orci nibh, dignissim in leo et, congue semper mauris.</blockquote>
+        <blockquote>{props.store[0].memo}</blockquote>
       </section>
 
       <section>
         <header>
-          <h3>Phone bill</h3>
-          <p>3/26/2020</p>
+          <h3>{props.store[1].category}</h3>
+          <p>{props.store[1].date}</p>
         </header>
         <dl>
           <dt>Cost</dt>
-          <dd>$72</dd>
+          <dd>${props.store[1].cost}</dd>
           <dt>Payee</dt>
-          <dd>AT&T</dd>
+          <dd>{props.store[1].payee}</dd>
         </dl>
-        <blockquote>Praesent sagittis a mi sit amet dictum. Donec orci nibh, dignissim in leo et, congue semper mauris.</blockquote>
+        <blockquote>{props.store[1].memo}</blockquote>
       </section>
       <section>
         <header>
-          <h3>Gym</h3>
-          <p>3/12/2020</p>
+          <h3>{props.store[2].category}</h3>
+          <p>{props.store[2].date}</p>
         </header>
         <dl>
           <dt>Cost</dt>
-          <dd>$25</dd>
+          <dd>${props.store[2].cost}</dd>
           <dt>Payee</dt>
-          <dd>YMCA</dd>
+          <dd>{props.store[2].payee}</dd>
         </dl>
-        <blockquote>Praesent sagittis a mi sit amet dictum. Donec orci nibh, dignissim in leo et, congue semper mauris.</blockquote>
+        <blockquote>{props.store[2].memo}</blockquote>
       </section>
       <section>
         <header>
-          <h3>Shopping</h3>
-          <p>3/12/2020</p>
+          <h3>{props.store[3].category}</h3>
+          <p>{props.store[3].date}</p>
         </header>
         <dl>
           <dt>Cost</dt>
-          <dd>$25</dd>
+          <dd>${props.store[3].cost}</dd>
         </dl>
       </section>
 

@@ -15,7 +15,7 @@ export default function CategoryPage() {
             <label for='name'>Category Name: </label>
             <input type='text' id='name' name='name' />
           </div>
-          <button type='submit' id='category-submit'>Add new category</button>
+          <button type='submit' id='category-submit'>Add category</button>
         </form>
       </section>
 

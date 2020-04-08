@@ -4,23 +4,27 @@ import './App.css';
 
 import HomePage from './routes/HomePage/HomePage';
 import LoginPage from './routes/LoginPage/LoginPage';
+import RegisterPage from './routes/RegisterPage/RegisterPage';
 import AccountPage from './routes/AccountPage/AccountPage';
 import TransactionPage from './routes/TransactionPage/TransactionPage';
 import CategoryPage from './routes/CategoryPage/CategoryPage';
 import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
-import Nav from './components/Nav/Nav'
+import Nav from './components/Nav/Nav';
+
+import STORE from './store';
 
 export default class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-
+  /*
+    constructor(props) {
+      super(props);
+      this.state = {
+        isLoggedIn: false,
+  
+      }
     }
-  }
+  */
 
   render() {
     return (
@@ -38,24 +42,29 @@ export default class App extends Component {
               path='/authentication'
               component={LoginPage} />
             <Route
+              path='/register'
+              component={RegisterPage} />
+            <Route
               exact path='/:accountId'
-              component={AccountPage} />
-              <Route
+              render={() =>
+                <AccountPage store={STORE.expenses} />}
+              />
+            <Route
               path='/:accountId/add-transaction'
               component={TransactionPage} />
-              <Route
+            <Route
               path='/:accountId/add-category'
               component={CategoryPage} />
-              <Route
+            <Route
               path='/:accountId/reports'
               component={ReportsPage} />
-              <Route
+            <Route
               component={NotFoundPage} />
           </Switch>
         </main>
 
 
-          <footer>Footer</footer>
+        <footer>Footer</footer>
       </div>
 
     );
