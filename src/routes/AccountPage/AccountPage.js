@@ -1,14 +1,27 @@
 import React from 'react';
+
+import Expense from '../../components/Expense/Expense';
+
 import './AccountPage.css';
 
 export default function AccountPage(props) {
 
   return (
-    <div className='accountPage'>
-      <header role="banner">
+    <div className='account'>
+      <header className='account-title' role="banner">
         <h2>Current Transactions</h2>
       </header>
+      <div className='transaction-list'>
+        {props.store.map(expense =>
+          <Expense {...expense} key={expense.id} />
+        )}
+      </div>
+    </div>
+  );
 
+}
+
+/*
       <section>
         <header>
           <h3>{props.store[0].category}</h3>
@@ -59,8 +72,4 @@ export default function AccountPage(props) {
           <dd>${props.store[3].cost}</dd>
         </dl>
       </section>
-
-    </div>
-  );
-
-}
+*/

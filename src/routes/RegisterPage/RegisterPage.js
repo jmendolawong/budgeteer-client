@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import './RegisterPage.css';
+import './RegisterPage.css';
 
 export default function RegisterPage() {
 
   return (
-    <div className='RegisterPage'>
+    <div className='registerPage'>
       <p id='register'>Already have an account? <Link to='/authentication'>Log in.</Link></p>
       <form className="register-form">
         <div className="register-input">

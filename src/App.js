@@ -62,9 +62,6 @@ export default class App extends Component {
               component={NotFoundPage} />
           </Switch>
         </main>
-
-
-        <footer>Footer</footer>
       </div>
 
     );
