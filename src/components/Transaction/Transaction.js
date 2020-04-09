@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 //import './TransactionPage.css';
 
-export default function TransactionPage() {
-
-  return (
-    <div className='add-transaction'>
-      <header role="banner">
-        <h2>Add new transaction</h2>
-      </header>
-
+export default class Transaction extends Component {
+  render() {
+    if (!this.props.showTransModal) {
+      return null;
+    }
+    return (
       <section>
         <form class="new-transaction">
           <label for="category">Choose a category:</label>
@@ -22,7 +20,7 @@ export default function TransactionPage() {
           </select>
           <div class="transaction-date">
             <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" />
-          <input type="number" name="date-day" class="date-day" placeholder="01" min="1" max="31" required="" />
+            <input type="number" name="date-day" class="date-day" placeholder="01" min="1" max="31" required="" />
             <input type="number" name="date-year" class="date-year" placeholder="2020" min="2019" max="2020" required="" />
           </div>
           <div class="transaction-cost">
@@ -40,8 +38,6 @@ export default function TransactionPage() {
           <button type='submit' id='transaction-submit'>Add transaction</button>
         </form>
       </section>
-
-    </div>
-  );
-
+    );
+  }
 }
