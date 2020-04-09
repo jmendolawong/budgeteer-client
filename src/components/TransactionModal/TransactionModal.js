@@ -1,13 +1,13 @@
 import React from 'react';
 import Modal from 'react-modal';
-import './TransactionModal.css';
+import '../Modal.css';
 
 export default function TransactionModal(props) {
 
   return (
     <Modal
       isOpen={props.isOpen}
-      onRequestClose={props.handleCloseModal}
+      onRequestClose={props.onRequestClose}
       shouldCloseOnOverlayClick={true}
       overlayClassName="overlay"
       className='modal'

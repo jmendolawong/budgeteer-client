@@ -30,15 +30,11 @@
 
 
 .modal {
-  background: linear-gradient(to bottom right, light-blue 0%, dark-blue 100%);
   border-radius: 5px;
-  color: white;
   outline: none;
   padding: 2rem 4rem;
   position: relative;
   text-align: center;
-
-
 }
 
 .overlay {

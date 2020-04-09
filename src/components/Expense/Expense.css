@@ -16,14 +16,7 @@ header {
 .expense {
   min-height: 300;
   padding: 25px;
-}
-
-.expense:nth-child(even) {
-  background: #ccc;
-}
-
-.expense:nth-child(odd) {
-  background: #eee;
+  border: black 1px solid;
 }
 
 p {

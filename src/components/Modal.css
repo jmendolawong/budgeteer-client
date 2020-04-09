@@ -2,6 +2,10 @@
   z-index: 99999;
 }
 
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
 .ReactModalPortal .ReactModal__Overlay {
   align-items: center;
   display: flex;
@@ -11,32 +15,20 @@
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
   opacity: 1;
-  max-width: 90%;
-  max-height: 50%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  padding: 0;
 }
 
 .ReactModalPortal .ReactModal__Overlay--before-close {
   opacity: 0;
 }
 
-
 .modal {
-  border-radius: 5px;
+  background-color: #4169e1;
+  border-radius: 10px;
+  color: #f5f5f5;
   outline: none;
   padding: 2rem 4rem;
   position: relative;
   text-align: center;
-
-  
 }
 
 .overlay {
@@ -45,5 +37,5 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ddd;
-}
+  background-color: rgba(255, 255, 255, 0.75);
+} 

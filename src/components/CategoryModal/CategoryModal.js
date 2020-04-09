@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-import './CategoryModal.css';
+import '../Modal.css';
 
 export default function CategoryModal(props) {
 
@@ -11,6 +11,7 @@ export default function CategoryModal(props) {
       onRequestClose={props.onRequestClose}
       shouldCloseOnOverlayClick={true}
       overlayClassName="overlay"
+      className='modal'
     >
       <div className='add-category'>
         <form class="category-form">

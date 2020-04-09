@@ -8,19 +8,6 @@ body {
   text-align: center;
 }
 
-nav, footer {
-  background: #aaa;
-  padding: 3px;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
 ul {
   list-style-type: none;
   text-align: right;
@@ -34,19 +21,6 @@ li {
 
 header {
   padding: 45px 15px;
-}
-
-section {
-  min-height: 300;
-  padding: 25px;
-}
-
-section:nth-child(even) {
-  background: #ccc;
-}
-
-section:nth-child(odd) {
-  background: #eee;
 }
 
 p {
