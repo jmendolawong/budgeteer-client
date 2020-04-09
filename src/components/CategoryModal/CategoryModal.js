@@ -1,20 +1,18 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-//import './CategoryPage.css';
+import './CategoryModal.css';
 
-export default function CategoryPage(props) {
+export default function CategoryModal(props) {
 
   return (
     <Modal
       isOpen={props.isOpen}
       onRequestClose={props.onRequestClose}
+      shouldCloseOnOverlayClick={true}
       overlayClassName="overlay"
     >
       <div className='add-category'>
-        <header role="banner">
-          <h2>Add Category</h2>
-        </header>
         <form class="category-form">
           <div class="category-name">
             <label for='name'>Category Name: </label>
@@ -23,7 +21,7 @@ export default function CategoryPage(props) {
 
         </form>
         <button type='submit' id='category-submit'>Add category</button>
-
+        <button onClick={props.handleCloseModal}>Close</button>
       </div>
     </Modal>
   );

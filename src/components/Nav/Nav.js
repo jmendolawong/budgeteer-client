@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import CategoryModal from '../../routes/CategoryPage/CategoryModal';
+import CategoryModal from '../CategoryModal/CategoryModal';
+import TransactionModal from '../TransactionModal/TransactionModal';
 import './Nav.css'
 
 //const isLoggedIn = true;
@@ -20,13 +21,22 @@ export default class Nav extends Component {
 
   handleCatModal = () => {
     this.setState({
-      showCatModal: true
+      showCatModal: true,
+      showTransModal: false
     })
   }
 
-  handleCloseCatModal = () => {
+  handleTransModal = () => {
     this.setState({
-      showCatModal: false
+      showCatModal: false,
+      showTransModal: true
+    })
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showCatModal: false,
+      showTransModal: false
     })
   }
 
@@ -42,7 +52,7 @@ export default class Nav extends Component {
         <Link to='/:accountId'>
           Account
         </Link>
-        <Link to='/:accountId/add-transaction'>
+        <Link to='#' onClick={this.handleTransModal}>
           +Expense
         </Link>
         <Link to='#' onClick={this.handleCatModal}>
@@ -56,7 +66,13 @@ export default class Nav extends Component {
         </Link>
         <CategoryModal
           isOpen={this.state.showCatModal}
-          onRequestClose={this.handleCloseCatModal}
+          onRequestClose={this.handleCloseModal}
+          handleCloseModal={this.handleCloseModal}
+        />
+        <TransactionModal
+          isOpen={this.state.showTransModal}
+          onRequestClose={this.handleCloseModal}
+          handleCloseModal={this.handleCloseModal}
         />
       </div>
     );
