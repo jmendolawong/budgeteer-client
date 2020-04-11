@@ -50,10 +50,10 @@ export default class App extends Component {
                 <AccountPage store={STORE.expenses} />}
               />
             <Route
-              path='/:accountId/add-transaction'
+              path='#'
               component={TransactionPage} />
             <Route
-              path='/:accountId/add-category'
+              path='#'
               component={CategoryPage} />
             <Route
               path='/:accountId/reports'

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import CategoryModal from '../CategoryModal/CategoryModal';
 import TransactionModal from '../TransactionModal/TransactionModal';
@@ -43,27 +43,51 @@ export default class Nav extends Component {
   render() {
     return (
       <div className='nav'>
-        <Link to='/authentication'>
+        <NavLink 
+          to='/authentication' 
+          className='nav-link' 
+          activeStyle={{
+            textDecoration: "underline"
+        }}>
           Log In
-        </Link>
-        <Link to='/register'>
+        </NavLink>
+        <NavLink 
+          to='/register' 
+          className='nav-link' 
+          activeStyle={{
+            textDecoration: "underline"
+        }}>
           Register
-        </Link>
-        <Link to='/:accountId'>
+        </NavLink>
+        <NavLink 
+          exact={true} 
+          to='/:accountId' 
+          className='nav-link' 
+          activeStyle={{
+            textDecoration: "underline"
+        }}>
           Account
-        </Link>
-        <Link to='#' onClick={this.handleTransModal}>
-          +Expense
-        </Link>
-        <Link to='#' onClick={this.handleCatModal}>
-          +Category
-        </Link>
-        <Link to='/:accountId/reports'>
+        </NavLink>
+
+        <Link to='/:accountId/add-transaction' className='nav-link' onClick={this.handleTransModal}>+Expense</Link>
+        <Link to='/:accountId/add-category' className='nav-link' onClick={this.handleCatModal}>+Category</Link>
+        
+        <NavLink 
+          to='/:accountId/reports' 
+          className='nav-link' activeStyle={{
+            textDecoration: "underline"
+        }}>
           Reports
-        </Link>
-        <Link to='/'>
+        </NavLink>
+        <NavLink 
+          exact={true}
+          to='/' 
+          className='nav-link' activeStyle={{
+            textDecoration: "underline"
+        }}>
           Log out
-        </Link>
+        </NavLink>
+        
         <CategoryModal
           isOpen={this.state.showCatModal}
           onRequestClose={this.handleCloseModal}

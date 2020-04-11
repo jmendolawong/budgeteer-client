@@ -21,12 +21,17 @@
   opacity: 0;
 }
 
+
+.ReactModal__Content .ReactModal__Content--after-open {
+  padding: 0;
+}
+
 .modal {
-  background-color: #4169e1;
+  background-color:#3A70A6;
   border-radius: 10px;
   color: #f5f5f5;
   outline: none;
-  padding: 2rem 4rem;
+  padding: 10px 20px;
   position: relative;
   text-align: center;
 }

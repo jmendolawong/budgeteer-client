@@ -1,6 +1,6 @@
 
 .nav {
-  background: #aaa;
+  background-image:linear-gradient(to bottom right, #6699CC, #042F59);
   position: fixed;
   list-style-type: none;
   text-align: right;
@@ -17,6 +17,15 @@
 .nav a {
   display: inline-block;
   margin: 3px 15px;
+  color: white;
+}
+
+.nav a:link {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #6699CC;
 }
   
 header {

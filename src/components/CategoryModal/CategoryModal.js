@@ -16,8 +16,8 @@ export default function CategoryModal(props) {
       <div className='add-category'>
         <form class="category-form">
           <div class="category-name">
-            <label for='name'>Category Name: </label>
-            <input type='text' id='name' name='name' />
+            <label for='name'></label>
+            <input type='text' id='name' name='name' placeholder='New Category'/>
           </div>
 
         </form>
