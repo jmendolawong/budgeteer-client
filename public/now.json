@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "alias": "budgeteer-app",
   "name": "budgeteer-app",
   "routes": [
       { "handle": "filesystem" },
