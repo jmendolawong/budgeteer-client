@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import Expense from '../../components/Expense/Expense';
-import ExpenseContext from '../../ExpenseContext'
+import Transaction from '../../components/Transaction/Transaction';
+import TransactionContext from '../../TransactionContext'
 
 import './AccountPage.css';
 
 export default class AccountPage extends Component {
-  static contextType = ExpenseContext
+  static contextType = TransactionContext
   
   render() {
 
@@ -14,7 +14,7 @@ export default class AccountPage extends Component {
       return <></>
     }
 
-    const { expenses = [] } = this.context
+    const { transactions = [] } = this.context
 
     return (
       <div className='account'>
@@ -22,8 +22,8 @@ export default class AccountPage extends Component {
           <h2>Current Transactions</h2>
         </header>
         <div className='transaction-list'>
-          {expenses.map(expense =>
-            <Expense {...expense} key={expense.id} />
+          {transactions.map(transaction =>
+            <Transaction {...transaction} key={transaction.id} />
           )}
         </div>
       </div>

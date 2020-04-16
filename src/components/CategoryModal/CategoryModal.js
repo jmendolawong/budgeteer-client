@@ -9,14 +9,15 @@ export default function CategoryModal(props) {
     <Modal
       isOpen={props.isOpen}
       onRequestClose={props.onRequestClose}
+      ariaHideApp={false}
       shouldCloseOnOverlayClick={true}
       overlayClassName="overlay"
       className='modal'
     >
       <div className='add-category'>
-        <form class="category-form">
-          <div class="category-name">
-            <label for='name'></label>
+        <form className="category-form">
+          <div className="category-name">
+            <label htmlFor='name'></label>
             <input type='text' id='name' name='name' placeholder='New Category'/>
           </div>
 

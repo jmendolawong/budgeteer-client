@@ -1,5 +1,5 @@
 import React from 'react'
 
-const TransactioneContext = React.createContext()
+const TransactionContext = React.createContext()
 
 export default TransactionContext

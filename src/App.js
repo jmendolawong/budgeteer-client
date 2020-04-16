@@ -13,17 +13,32 @@ import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
 import Nav from './components/Nav/Nav';
-import ExpenseContext from './ExpenseContext'
+import TransactionContext from './TransactionContext'
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      expenses: [],
+      transactions: [],
       isLoggedIn: false,
       error: null,
     }
+  }
+
+  handleDeleteTransaction = transactionId => {
+    const newTransactions = this.state.transactions.filter(transaction =>
+      transaction.id !== transactionId
+    )
+    this.setState({
+      transactions: newTransactions
+    })
+  }
+
+  handleAddTransaction = transaction => {
+    this.setState({
+      transactions: [...this.state.transactions, transaction]
+    })
   }
 
   componentDidMount() {
@@ -39,9 +54,9 @@ export default class App extends Component {
           return res.json().then(err => Promise.reject(err))
         } return res.json()
       })
-      .then(expenses => {
-        window.sessionStorage.setItem('sessionExpenses', JSON.stringify(expenses))
-        this.setState({ expenses })
+      .then(transactions => {
+        window.sessionStorage.setItem('sessionTransactions', JSON.stringify(transactions))
+        this.setState({ transactions })
       })
       .catch(error => {
         console.log({ error })
@@ -50,12 +65,14 @@ export default class App extends Component {
 
   render() {
     const contextValue = {
-      expenses: this.state.expenses,
+      transactions: this.state.transactions,
       isLoggedIn: this.state.isLoggedIn,
+      deleteTransaction: this.handleDeleteTransaction,
+      addTransaction: this.handleAddTransaction
     }
 
     return (
-      <ExpenseContext.Provider value={contextValue}>
+      <TransactionContext.Provider value={contextValue}>
         <div className='app'>
           <nav className='navbar'>
             <Nav />
@@ -84,13 +101,20 @@ export default class App extends Component {
               <Route
                 path='/:accountId/reports'
                 component={ReportsPage} />
+
               <Route
                 component={NotFoundPage} />
             </Switch>
           </main>
         </div>
-      </ExpenseContext.Provider>
+      </TransactionContext.Provider>
 
     );
   }
 }
+
+/*
+<Route
+                path='/:accountId/edit/:transactionId'
+                component={EditPage} />
+*/
