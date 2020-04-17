@@ -8,6 +8,7 @@ import LoginPage from './routes/LoginPage/LoginPage';
 import RegisterPage from './routes/RegisterPage/RegisterPage';
 import AccountPage from './routes/AccountPage/AccountPage';
 import TransactionPage from './routes/TransactionPage/TransactionPage';
+//import TransactionModal from './components/TransactionModal/TransactionModal';
 import CategoryPage from './routes/CategoryPage/CategoryPage';
 import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';

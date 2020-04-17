@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 
 import ValidationError from '../ValidationError/ValidationError';
-import Option from '../Option/Option';
 
 import TransactionContext from '../../TransactionContext';
 import { addTransaction } from '../../transactionHelper';
+//import { useHistory } from 'react-router-dom'
 import config from '../../config';
 
 import '../Modal.css';
@@ -17,7 +17,6 @@ export default class TransactionModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: [],
       category: {
         value: '',
         touched: false,
@@ -38,12 +37,10 @@ export default class TransactionModal extends Component {
     const { category, date, cost } = this.state
     const payee = e.target.payee.value
     const memo = e.target.memo.value
+    console.log(category.value)
     addTransaction(this.context.addTransaction, category.value, date.value, cost.value, payee, memo);
     this.props.handleCloseModal();
   }
-
-  // Need to figure out how to get categories from the database
-  // and populate them in the options 
 
 
   updateCategory(category) {
@@ -86,7 +83,7 @@ export default class TransactionModal extends Component {
       return 'Cost is required'
   }
 
-  static contextType = TransactionContext
+  static contextType = TransactionContext;
 
   componentDidMount() {
 
@@ -113,7 +110,6 @@ export default class TransactionModal extends Component {
     const costError = this.validateCost()
     const dateError = this.validateDate()
     const categoryError = this.validateCategory()
-    const { options = [] } = this.state
 
     return (
       <Modal
@@ -133,9 +129,17 @@ export default class TransactionModal extends Component {
                 onChange={e => this.updateCategory(e.target.value)}
                 id="category" name='category' >
                 <option value="" disabled>Select one</option>
-                {options.map(option =>
-                  <Option value={option.category} key={option.category} />
-                )}
+                <option value="Shopping">Shopping</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Gym">Gym</option>
+                <option value="Auto & Transport">Auto & Transport</option>
+                <option value="Restaurants">Restaurants</option>
+                <option value="Personal Care">Personal Care</option>
+                <option value="Travel">Travel</option>
+                <option value="Home">Home</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Bills & Utilities">Bills & Utilities</option>
               </select>
               {this.state.category.touched && (
                 <ValidationError message={categoryError} />
@@ -169,12 +173,14 @@ export default class TransactionModal extends Component {
               <label htmlFor='memo'>Memo: </label>
               <textarea id='memo' name='memo' rows='3'></textarea>
             </div>
+
+            <button
+              type='submit'
+              className='transaction-submit'
+            >Add transaction</button>
           </form>
 
-          <button
-            type='submit'
-            id='transaction-submit'
-           >Add transaction</button>
+
           <button onClick={this.props.handleCloseModal}>Close</button>
         </div>
       </Modal>

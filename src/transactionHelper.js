@@ -18,13 +18,13 @@ export const deleteTransaction = (transactionId, callback) => {
     })
 }
 
-export const addTransaction = (callback, category, date, cost) => {
-  fetch(`${config.API_ENDPOINT}/:accountId/transactions}`, {
+export const addTransaction = (callback, category, date, cost, payee = '', memo = '') => {
+  fetch(`${config.API_ENDPOINT}/:accountId`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify({ category: category, date: date, cost: cost })
+    body: JSON.stringify({ category: category, date: date, cost: cost, payee: payee, memo: memo })
   })
     .then(res => {
       if (!res.ok) {
@@ -35,4 +35,3 @@ export const addTransaction = (callback, category, date, cost) => {
       callback(data)
     })
 }
-
