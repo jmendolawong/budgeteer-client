@@ -6,7 +6,7 @@ import ValidationError from '../ValidationError/ValidationError';
 import TransactionContext from '../../TransactionContext';
 import { addTransaction } from '../../transactionHelper';
 //import { useHistory } from 'react-router-dom'
-import config from '../../config';
+//import config from '../../config';
 
 import '../Modal.css';
 import './TransactionModal.css';
@@ -37,7 +37,6 @@ export default class TransactionModal extends Component {
     const { category, date, cost } = this.state
     const payee = e.target.payee.value
     const memo = e.target.memo.value
-    console.log(category.value)
     addTransaction(this.context.addTransaction, category.value, date.value, cost.value, payee, memo);
     this.props.handleCloseModal();
   }
@@ -53,7 +52,7 @@ export default class TransactionModal extends Component {
   validateCategory() {
     const category = this.state.category.value
     if (category === "")
-      return ''
+      return 'Select a category'
   }
 
 
@@ -85,26 +84,6 @@ export default class TransactionModal extends Component {
 
   static contextType = TransactionContext;
 
-  componentDidMount() {
-
-    fetch(`${config.API_ENDPOINT}/:accountId/categories`, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(err => Promise.reject(err))
-        } return res.json()
-      })
-      .then(options => {
-        this.setState({ options })
-      })
-      .catch(error => {
-        console.log({ error })
-      })
-  }
 
   render() {
     const costError = this.validateCost()
@@ -130,7 +109,6 @@ export default class TransactionModal extends Component {
                 id="category" name='category' >
                 <option value="" disabled>Select one</option>
                 <option value="Shopping">Shopping</option>
-                <option value="Groceries">Groceries</option>
                 <option value="Groceries">Groceries</option>
                 <option value="Gym">Gym</option>
                 <option value="Auto & Transport">Auto & Transport</option>
@@ -177,6 +155,11 @@ export default class TransactionModal extends Component {
             <button
               type='submit'
               className='transaction-submit'
+              disabled={
+                this.validateCategory() ||
+                this.validateCost() ||
+                this.validateDate()
+              }
             >Add transaction</button>
           </form>
 

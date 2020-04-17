@@ -1,9 +1,13 @@
 import config from './config'
+import TokenService from './services/token-service';
 
 export const deleteTransaction = (transactionId, callback) => {
 
   fetch(`${config.API_ENDPOINT}/:accountId/transactions/${transactionId}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      'authorization': `basic ${TokenService.getAuthToken()}`,
+    }
   })
     .then(res => {
       if (!res.ok) {
@@ -22,6 +26,7 @@ export const addTransaction = (callback, category, date, cost, payee = '', memo 
   fetch(`${config.API_ENDPOINT}/:accountId`, {
     method: 'POST',
     headers: {
+      'authorization': `basic ${TokenService.getAuthToken()}`,
       'content-type': 'application/json'
     },
     body: JSON.stringify({ category: category, date: date, cost: cost, payee: payee, memo: memo })

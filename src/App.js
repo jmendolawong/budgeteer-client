@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import config from './config'
+import config from './config';
 import './App.css';
 
 import HomePage from './routes/HomePage/HomePage';
@@ -14,7 +14,9 @@ import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
 import Nav from './components/Nav/Nav';
-import TransactionContext from './TransactionContext'
+import TransactionContext from './TransactionContext';
+import TokenService from './services/token-service';
+//import TransactionApiService from './services/transaction-api-service'
 
 export default class App extends Component {
 
@@ -42,11 +44,17 @@ export default class App extends Component {
     })
   }
 
-  componentDidMount() {
+  handleUserStatus = status => {
+    this.setState({
+      isLoggedIn: status
+    })
+  }
 
+  componentDidMount() {
     fetch(`${config.API_ENDPOINT}/:accountId`, {
       method: 'GET',
       headers: {
+        'authorization': `basic ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       }
     })
@@ -68,6 +76,7 @@ export default class App extends Component {
     const contextValue = {
       transactions: this.state.transactions,
       isLoggedIn: this.state.isLoggedIn,
+      updateUserStatus: this.handleUserStatus,
       deleteTransaction: this.handleDeleteTransaction,
       addTransaction: this.handleAddTransaction
     }
