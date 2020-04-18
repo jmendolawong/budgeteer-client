@@ -3,10 +3,12 @@ import { NavLink, Link } from 'react-router-dom';
 
 import TransactionModal from '../TransactionModal/TransactionModal';
 import TokenService from '../../services/token-service';
+import TransactionContext from '../../TransactionContext';
 
 import './Nav.css'
 
 export default class Nav extends Component {
+  static contextType = TransactionContext
 
   constructor(props) {
     super(props);
@@ -25,6 +27,11 @@ export default class Nav extends Component {
     this.setState({
       showTransModal: false
     })
+  }
+
+  handleLogout = () => {
+    TokenService.clearAuthToken()
+    this.context.updateUserStatus(TokenService.hasAuthToken())
   }
 
   renderIsLoggedIn() {
@@ -51,15 +58,13 @@ export default class Nav extends Component {
           }}>
           Reports
           </NavLink>
-        <NavLink
-          exact={true}
+        <Link
+          exact='true'
           to='/'
-          className='nav-link' activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
+          className='nav-link'
+          onClick={this.handleLogout}>
           Log out
-          </NavLink>
+          </Link>
 
         <TransactionModal
           isOpen={this.state.showTransModal}
@@ -106,3 +111,15 @@ export default class Nav extends Component {
     )
   }
 }
+
+/*
+<NavLink
+          exact={true}
+          to='/'
+          className='nav-link' activeStyle={{
+            textDecoration: "underline",
+            color: '#6699CC'
+          }}>
+          Log out
+          </NavLink>
+          */
