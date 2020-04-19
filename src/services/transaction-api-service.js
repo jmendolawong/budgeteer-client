@@ -5,7 +5,9 @@ const TransactionApiService = {
     return fetch(`${config.API_ENDPOINT}/:accountId`, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+
       }
     })
       .then(res => {
@@ -20,45 +22,6 @@ const TransactionApiService = {
       .catch(error => {
         console.log({ error })
       })
-  },
-  getArticle(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
-  getArticleComments(articleId) {
-    return fetch(`${config.API_ENDPOINT}/articles/${articleId}/comments`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  },
-  postComment(articleId, text) {
-    return fetch(`${config.API_ENDPOINT}/comments`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        article_id: articleId,
-        text,
-      }),
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
   }
 }
 
