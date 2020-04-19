@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import TokenService from '../../services/token-service';
-import TransactionContext from '../../TransactionContext'
+import AuthApiService from '../../services/auth-api-service';
+import TransactionContext from '../../TransactionContext';
 import './LoginPage.css';
 
 export default class LoginPage extends Component {
@@ -22,6 +23,25 @@ export default class LoginPage extends Component {
     password.value = ''
   }
 
+  handleSubmitJwtAuth = e => {
+       e.preventDefault()
+       const { user, password } = e.target
+    
+       AuthApiService.postLogin({
+         username: user.value,
+         password: password.value,
+       })
+         .then(res => {
+           user.value = ''
+           password.value = ''
+           TokenService.saveAuthToken(res.authToken)
+           this.context.updateUserStatus(TokenService.hasAuthToken())
+          })
+         .catch(res => {
+           this.setState({ error: res.error })
+         })
+     }
+
   static contextType = TransactionContext;
 
   render() {
@@ -31,7 +51,7 @@ export default class LoginPage extends Component {
         <p id='register'>New to Budgeteer? <Link to='/register'>Sign up here</Link></p>
         <form 
           className="login-form"
-          onSubmit={this.handleSubmitAuth}>
+          onSubmit={this.handleSubmitJwtAuth}>
           <div className="login-input">
             <label htmlFor='user'>Username: </label>
             <input type='text' id='user' name='user' />
