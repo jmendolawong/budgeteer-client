@@ -6,6 +6,8 @@ import AuthApiService from '../../services/auth-api-service';
 import TransactionContext from '../../TransactionContext';
 import './LoginPage.css';
 
+const jwt = require('jsonwebtoken')
+
 export default class LoginPage extends Component {
 
   handleSubmitJwtAuth = e => {
@@ -21,7 +23,10 @@ export default class LoginPage extends Component {
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
         this.context.updateUserStatus(TokenService.hasAuthToken())
-        this.props.history.push(``)
+
+        const account= jwt.decode(TokenService.getAuthToken())
+        this.context.currentUser(account.user_id)
+        this.props.history.push(`/${account.user_id}`)
       })
       .catch(res => {
         console.log(res.error)

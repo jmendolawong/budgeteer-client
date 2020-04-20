@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-//import config from './config';
 import './App.css';
 
 import HomePage from './routes/HomePage/HomePage';
@@ -8,15 +7,12 @@ import LoginPage from './routes/LoginPage/LoginPage';
 import RegisterPage from './routes/RegisterPage/RegisterPage';
 import AccountPage from './routes/AccountPage/AccountPage';
 import TransactionPage from './routes/TransactionPage/TransactionPage';
-//import TransactionModal from './components/TransactionModal/TransactionModal';
 import CategoryPage from './routes/CategoryPage/CategoryPage';
 import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
 import Nav from './components/Nav/Nav';
 import TransactionContext from './TransactionContext';
-//import TokenService from './services/token-service';
-//import TransactionApiService from './services/transaction-api-service'
 
 export default class App extends Component {
 
@@ -24,6 +20,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       transactions: [],
+      accountId: '',
       isLoggedIn: false,
       error: null,
     }
@@ -54,11 +51,16 @@ export default class App extends Component {
     this.setState({ transactions })
   }
 
- 
+  currentUser = accountId => {
+    this.setState({ accountId })
+  }
+
+
   render() {
     const contextValue = {
       transactions: this.state.transactions,
       isLoggedIn: this.state.isLoggedIn,
+      currentUser: this.currentUser,
       updateUserStatus: this.handleUserStatus,
       deleteTransaction: this.handleDeleteTransaction,
       addTransaction: this.handleAddTransaction,
@@ -106,9 +108,3 @@ export default class App extends Component {
     );
   }
 }
-
-/*
-<Route
-                path='/:accountId/edit/:transactionId'
-                component={EditPage} />
-*/

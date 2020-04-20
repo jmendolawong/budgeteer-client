@@ -34,9 +34,3 @@ export default class Transaction extends Component {
     );
   }
 }
-
-/*
-<Link to='/:acountId/edit/:transactionId'>
-            Edit
-          </Link>
-          */
