@@ -11,7 +11,7 @@ export default class AccountPage extends Component {
   static contextType = TransactionContext
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/:accountId`, {
+    fetch(`${config.API_ENDPOINT}/${this.context.accountId}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

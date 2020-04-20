@@ -1,11 +1,12 @@
 import config from '../config';
 import TokenService from '../services/token-service';
 
+
 const TransactionApiService = {
 
-  deleteTransaction(transactionId, callback) {
+  deleteTransaction(callback, accountId, transactionId, ) {
 
-    fetch(`${config.API_ENDPOINT}/:accountId/transactions/${transactionId}`, {
+    fetch(`${config.API_ENDPOINT}/${accountId}/transactions/${transactionId}`, {
       method: 'DELETE',
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -24,8 +25,8 @@ const TransactionApiService = {
       })
   },
 
-  addTransaction(callback, category, date, cost, payee = '', memo = '') {
-    fetch(`${config.API_ENDPOINT}/:accountId`, {
+  addTransaction(callback, accountId, category, date, cost, payee = '', memo = '') {
+    fetch(`${config.API_ENDPOINT}/${accountId}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

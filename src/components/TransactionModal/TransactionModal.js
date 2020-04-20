@@ -38,7 +38,7 @@ export default class TransactionModal extends Component {
     const { category, date, cost } = this.state
     const payee = e.target.payee.value
     const memo = e.target.memo.value
-    TransactionApiService.addTransaction(this.context.addTransaction, category.value, date.value, cost.value, payee, memo);
+    TransactionApiService.addTransaction(this.context.addTransaction, this.context.accountId, category.value, date.value, cost.value, payee, memo);
     this.props.handleCloseModal();
   }
 

@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import TransactionContext from '../../TransactionContext';
 import './Transaction.css';
 import TransactionApiService from '../../services/transaction-api-service';
-//import { deleteTransaction } from '../../transactionHelper'
 
 export default class Transaction extends Component {
   static contextType = TransactionContext;
+  
 
   render() {
 
@@ -25,7 +25,7 @@ export default class Transaction extends Component {
           <button
             className='delete-transaction btn'
             onClick={() => {
-              TransactionApiService.deleteTransaction(this.props.id, this.context.deleteTransaction)
+              TransactionApiService.deleteTransaction(this.context.deleteTransaction, this.context.accountId, this.props.id)
             }}>Delete</button>
         </div>
 

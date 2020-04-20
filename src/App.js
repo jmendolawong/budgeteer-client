@@ -60,6 +60,7 @@ export default class App extends Component {
     const contextValue = {
       transactions: this.state.transactions,
       isLoggedIn: this.state.isLoggedIn,
+      accountId: this.state.accountId,
       currentUser: this.currentUser,
       updateUserStatus: this.handleUserStatus,
       deleteTransaction: this.handleDeleteTransaction,

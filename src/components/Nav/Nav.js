@@ -39,7 +39,7 @@ export default class Nav extends Component {
       <div className='nav'>
         <NavLink
           exact={true}
-          to='/:accountId'
+          to={`/${this.context.accountId}`}
           className='nav-link'
           activeStyle={{
             textDecoration: "underline",
@@ -48,10 +48,10 @@ export default class Nav extends Component {
           Account
           </NavLink>
 
-        <Link to='#' className='nav-link' onClick={this.handleTransModal}>+Expense</Link>
+        <Link to='#' className='nav-link' onClick={this.handleTransModal}>+Transaction</Link>
 
         <NavLink
-          to='/:accountId/reports'
+          to={`/${this.context.accountId}/reports`}
           className='nav-link' activeStyle={{
             textDecoration: "underline",
             color: '#6699CC'
