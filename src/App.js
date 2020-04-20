@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import config from './config';
+//import config from './config';
 import './App.css';
 
 import HomePage from './routes/HomePage/HomePage';
@@ -15,7 +15,7 @@ import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
 import Nav from './components/Nav/Nav';
 import TransactionContext from './TransactionContext';
-import TokenService from './services/token-service';
+//import TokenService from './services/token-service';
 //import TransactionApiService from './services/transaction-api-service'
 
 export default class App extends Component {
@@ -50,35 +50,19 @@ export default class App extends Component {
     })
   }
 
-  componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/:accountId`, {
-      method: 'GET',
-      headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
-        'content-type': 'application/json'
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(err => Promise.reject(err))
-        } return res.json()
-      })
-      .then(transactions => {
-        window.sessionStorage.setItem('sessionTransactions', JSON.stringify(transactions))
-        this.setState({ transactions })
-      })
-      .catch(error => {
-        console.log({ error })
-      })
+  handleListTransactions = transactions => {
+    this.setState({ transactions })
   }
 
+ 
   render() {
     const contextValue = {
       transactions: this.state.transactions,
       isLoggedIn: this.state.isLoggedIn,
       updateUserStatus: this.handleUserStatus,
       deleteTransaction: this.handleDeleteTransaction,
-      addTransaction: this.handleAddTransaction
+      addTransaction: this.handleAddTransaction,
+      listTransactions: this.handleListTransactions,
     }
 
     return (

@@ -1,4 +1,5 @@
 import config from '../config'
+import TokenService from '../services/token-service'
 
 const AuthApiService = {
   postLogin(credentials) {
@@ -6,6 +7,7 @@ const AuthApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(credentials),
     })

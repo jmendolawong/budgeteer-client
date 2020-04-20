@@ -8,48 +8,35 @@ import './LoginPage.css';
 
 export default class LoginPage extends Component {
 
-  handleSubmitAuth = e => {
+  handleSubmitJwtAuth = e => {
     e.preventDefault()
     const { user, password } = e.target
 
-    console.log('login form submitted')
-    console.log({ user, password })
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(user.value, password.value)
-    )
-    this.context.updateUserStatus(TokenService.hasAuthToken())
+    AuthApiService.postLogin({
+      username: user.value,
+      password: password.value,
+    })
+      .then(res => {
+        user.value = ''
+        password.value = ''
+        TokenService.saveAuthToken(res.authToken)
+        this.context.updateUserStatus(TokenService.hasAuthToken())
+        this.props.history.push(``)
+      })
+      .catch(res => {
+        console.log(res.error)
+      })
 
-    user.value = ''
-    password.value = ''
   }
-
-  handleSubmitJwtAuth = e => {
-       e.preventDefault()
-       const { user, password } = e.target
-    
-       AuthApiService.postLogin({
-         username: user.value,
-         password: password.value,
-       })
-         .then(res => {
-           user.value = ''
-           password.value = ''
-           TokenService.saveAuthToken(res.authToken)
-           this.context.updateUserStatus(TokenService.hasAuthToken())
-          })
-         .catch(res => {
-           this.setState({ error: res.error })
-         })
-     }
 
   static contextType = TransactionContext;
 
   render() {
-    
+
     return (
       <div className='loginPage' >
         <p id='register'>New to Budgeteer? <Link to='/register'>Sign up here</Link></p>
-        <form 
+        <form
           className="login-form"
           onSubmit={this.handleSubmitJwtAuth}>
           <div className="login-input">

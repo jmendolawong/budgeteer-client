@@ -4,7 +4,8 @@ import Modal from 'react-modal';
 import ValidationError from '../ValidationError/ValidationError';
 
 import TransactionContext from '../../TransactionContext';
-import { addTransaction } from '../../transactionHelper';
+import TransactionApiService from '../../services/transaction-api-service';
+//import { addTransaction } from '../../transactionHelper';
 //import { useHistory } from 'react-router-dom'
 //import config from '../../config';
 
@@ -37,7 +38,7 @@ export default class TransactionModal extends Component {
     const { category, date, cost } = this.state
     const payee = e.target.payee.value
     const memo = e.target.memo.value
-    addTransaction(this.context.addTransaction, category.value, date.value, cost.value, payee, memo);
+    TransactionApiService.addTransaction(this.context.addTransaction, category.value, date.value, cost.value, payee, memo);
     this.props.handleCloseModal();
   }
 

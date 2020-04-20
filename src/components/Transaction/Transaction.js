@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
-import TransactionContext from '../../TransactionContext'
-import './Transaction.css'
-import { deleteTransaction } from '../../transactionHelper'
+import TransactionContext from '../../TransactionContext';
+import './Transaction.css';
+import TransactionApiService from '../../services/transaction-api-service';
+//import { deleteTransaction } from '../../transactionHelper'
 
 export default class Transaction extends Component {
   static contextType = TransactionContext;
@@ -24,7 +25,7 @@ export default class Transaction extends Component {
           <button
             className='delete-transaction btn'
             onClick={() => {
-              deleteTransaction(this.props.id, this.context.deleteTransaction)
+              TransactionApiService.deleteTransaction(this.props.id, this.context.deleteTransaction)
             }}>Delete</button>
         </div>
 
