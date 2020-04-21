@@ -24,9 +24,12 @@ export default class RegisterPage extends Component {
     const { username, password } = e.target
 
     this.setState({ error: null })
-    AuthApiService.postUser({ username: username.value, password: password.value })
-      .then(user => {
-        username.value = '',
+    AuthApiService.postUser({
+      username: username.value,
+      password: password.value,
+    })
+      .then(() => {
+        username.value = ''
         password.value = ''
       })
       .catch(res => {
