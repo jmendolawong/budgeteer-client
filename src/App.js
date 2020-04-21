@@ -12,57 +12,99 @@ import ReportsPage from './routes/ReportsPage/ReportsPage';
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage';
 
 import Nav from './components/Nav/Nav';
-
-import STORE from './store';
+import TransactionContext from './TransactionContext';
 
 export default class App extends Component {
-  /*
-    constructor(props) {
-      super(props);
-      this.state = {
-        isLoggedIn: false,
-  
-      }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      transactions: [],
+      accountId: '',
+      isLoggedIn: false,
+      error: null,
     }
-  */
+  }
+
+  handleDeleteTransaction = transactionId => {
+    const newTransactions = this.state.transactions.filter(transaction =>
+      transaction.id !== transactionId
+    )
+    this.setState({
+      transactions: newTransactions
+    })
+  }
+
+  handleAddTransaction = transaction => {
+    this.setState({
+      transactions: [...this.state.transactions, transaction]
+    })
+  }
+
+  handleUserStatus = status => {
+    this.setState({
+      isLoggedIn: status
+    })
+  }
+
+  handleListTransactions = transactions => {
+    this.setState({ transactions })
+  }
+
+  currentUser = accountId => {
+    this.setState({ accountId })
+  }
+
 
   render() {
-    return (
-      <div className='app'>
-        <nav className='navbar'>
-          <Nav />
-        </nav>
+    const contextValue = {
+      transactions: this.state.transactions,
+      isLoggedIn: this.state.isLoggedIn,
+      accountId: this.state.accountId,
+      currentUser: this.currentUser,
+      updateUserStatus: this.handleUserStatus,
+      deleteTransaction: this.handleDeleteTransaction,
+      addTransaction: this.handleAddTransaction,
+      listTransactions: this.handleListTransactions,
+    }
 
-        <main className='mainSection'>
-          <Switch>
-            <Route
-              exact path='/'
-              component={HomePage} />
-            <Route
-              path='/authentication'
-              component={LoginPage} />
-            <Route
-              path='/register'
-              component={RegisterPage} />
-            <Route
-              exact path='/:accountId'
-              render={() =>
-                <AccountPage store={STORE.expenses} />}
-              />
-            <Route
-              path='/:accountId/add-transaction'
-              component={TransactionPage} />
-            <Route
-              path='/:accountId/add-category'
-              component={CategoryPage} />
-            <Route
-              path='/:accountId/reports'
-              component={ReportsPage} />
-            <Route
-              component={NotFoundPage} />
-          </Switch>
-        </main>
-      </div>
+    return (
+      <TransactionContext.Provider value={contextValue}>
+        <div className='app'>
+          <nav className='navbar'>
+            <Nav />
+          </nav>
+
+          <main className='mainSection'>
+            <Switch>
+              <Route
+                exact path='/'
+                component={HomePage} />
+              <Route
+                path='/authentication'
+                component={LoginPage} />
+              <Route
+                path='/register'
+                component={RegisterPage} />
+              <Route
+                exact path='/:accountId'
+                component={AccountPage} />
+              <Route
+                path='/:accountId/add-transaction'
+                component={TransactionPage} />
+              <Route
+                path='/:accountId/add-category'
+                component={CategoryPage} />
+              <Route
+                path='/:accountId/reports'
+                component={ReportsPage} />
+
+              <Route
+                component={NotFoundPage} />
+            </Switch>
+          </main>
+        </div>
+      </TransactionContext.Provider>
 
     );
   }

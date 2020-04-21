@@ -10,10 +10,10 @@ export default function ReportsPage() {
       </header>
 
       <section>
-        <div class="report-pie">
+        <div className="report-pie">
           <p>[<em>placeholder for pie chart</em>]</p>
         </div>
-        <div class="report-graph">
+        <div className="report-graph">
           <p>[<em>placeholder for graph</em>]</p>
         </div>
         <p>Pie | Graph</p>
