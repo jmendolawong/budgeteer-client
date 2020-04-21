@@ -4,28 +4,42 @@
   position: fixed;
   list-style-type: none;
   text-align: right;
+  display: inline-block;
+  vertical-align: middle;
   margin: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   padding: 3px;
-
-  
 }
 
 .nav a {
   display: inline-block;
+  vertical-align: middle;
   margin: 3px 15px;
   color: white;
+}
+
+div.nav-links, .nav-right {
+  height: 100%;
 }
 
 .nav a:link {
   text-decoration: none;
 }
 
-.nav a:hover {
+.nav-right a:hover {
   color: #6699CC;
+}
+
+a.home-nav {
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+a.nav-link {
 }
   
 header {

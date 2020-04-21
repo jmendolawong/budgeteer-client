@@ -38,39 +38,47 @@ export default class Nav extends Component {
     return (
       <div className='nav'>
         <NavLink
+          to={'/'}
           exact={true}
-          to={`/${this.context.accountId}`}
-          className='nav-link'
-          activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
-          Account
+          className='home-nav'>
+          Budgeteer
+        </NavLink>
+        <div className='nav-right'>
+          <NavLink
+            exact={true}
+            to={`/${this.context.accountId}`}
+            className='nav-link'
+            activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Account
           </NavLink>
 
-        <Link to='#' className='nav-link' onClick={this.handleTransModal}>+Transaction</Link>
+          <Link to='#' className='nav-link' onClick={this.handleTransModal}>+Transaction</Link>
 
-        <NavLink
-          to={`/${this.context.accountId}/reports`}
-          className='nav-link' activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
-          Reports
+          <NavLink
+            to={`/${this.context.accountId}/reports`}
+            className='nav-link' activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Reports
           </NavLink>
-        <Link
-          exact='true'
-          to='/'
-          className='nav-link'
-          onClick={this.handleLogout}>
-          Log out
+          <Link
+            exact='true'
+            to='/'
+            className='nav-link'
+            onClick={this.handleLogout}>
+            Log out
           </Link>
 
-        <TransactionModal
-          isOpen={this.state.showTransModal}
-          onRequestClose={this.handleCloseModal}
-          handleCloseModal={this.handleCloseModal}
-        />
+          <TransactionModal
+            isOpen={this.state.showTransModal}
+            onRequestClose={this.handleCloseModal}
+            handleCloseModal={this.handleCloseModal}
+          />
+        </div>
       </div>
     )
   }
@@ -79,23 +87,31 @@ export default class Nav extends Component {
     return (
       <div className='nav-links'>
         <NavLink
-          to='/authentication'
-          className='nav-link'
-          activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
-          Log In
+          to={'/'}
+          exact={true}
+          className='nav-link home-nav'>
+          Budgeteer
+        </NavLink>
+        <div className='nav-right'>
+          <NavLink
+            to='/authentication'
+            className='nav-link'
+            activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Log In
           </NavLink>
-        <NavLink
-          to='/register'
-          className='nav-link'
-          activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
-          Register
+          <NavLink
+            to='/register'
+            className='nav-link'
+            activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Register
           </NavLink>
+        </div>
       </div>
     )
   }

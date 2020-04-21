@@ -1,21 +1,20 @@
 import React from 'react';
 import './HomePage.css';
+import Logo from '../../images/fist_logo.png';
 
 export default function HomePage() {
 
   return (
     <div className='homePage'>
       <header role="banner">
-        <h1>Budgeteer</h1>
         <h2>Fight for control over your money</h2>
-        <p> [<em>Placeholder for image/logo</em>]</p>
       </header>
 
       <section>
-        <header>
-          <h3>Financial power</h3>
+        <header id='fight'>
+          <h2>Financial power</h2>
         </header>
-        <p>[<em>placeholder for hand fist money</em>]</p>
+        <img src={Logo} id='logo-img' alt='logo' />
         <p>When you know where your money's going, you're giving yourself control. Otherwise, at the end of the day (week, month), you're left with empty pockets and wondering where your money went.</p>
       </section>
 
@@ -34,7 +33,7 @@ export default function HomePage() {
         <p> [<em>placeholder for pie chart/graphs</em>]</p>
         <p>Visualize your spending habits. See the graphs and charts of your spending from the past 30 days. Understand where most of your spending habits reside.</p>
       </section>
-      
+
     </div >
   );
 
