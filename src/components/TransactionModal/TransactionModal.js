@@ -29,7 +29,8 @@ export default class TransactionModal extends Component {
       cost: {
         value: '',
         touched: false
-      }
+      },
+      error: null
     }
   }
 
