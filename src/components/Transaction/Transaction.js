@@ -9,7 +9,6 @@ export default class Transaction extends Component {
 
 
   render() {
-
     return (
       <div className='transaction'>
         <header className='transaction-header'>
@@ -22,14 +21,15 @@ export default class Transaction extends Component {
         </header>
         <div className='transaction-body'>
           <blockquote className='transaction-memo'>{this.props.memo}</blockquote>
+          <div className='transaction-options'>
+            <button
+              className='delete-transaction btn'
+              onClick={() => {
+                TransactionApiService.deleteTransaction(this.context.deleteTransaction, this.context.accountId, this.props.id)
+              }}>Delete</button>
+          </div>
         </div>
-        <div className='transaction-options'>
-          <button
-            className='delete-transaction btn'
-            onClick={() => {
-              TransactionApiService.deleteTransaction(this.context.deleteTransaction, this.context.accountId, this.props.id)
-            }}>Delete</button>
-        </div>
+
       </div >
     );
   }

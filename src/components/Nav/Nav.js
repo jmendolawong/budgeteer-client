@@ -36,11 +36,11 @@ export default class Nav extends Component {
 
   renderIsLoggedIn() {
     return (
-      <div className='nav'>
+      <div className='logged-in-nav'>
         <NavLink
           to={'/'}
           exact={true}
-          className='home-nav'>
+          className='nav-home'>
           Budgeteer
         </NavLink>
         <div className='nav-options'>
@@ -89,30 +89,28 @@ export default class Nav extends Component {
         <NavLink
           to={'/'}
           exact={true}
-          className='home-nav logged-out-home'>
+          className='nav-home logged-out-home'>
           Budgeteer
         </NavLink>
         <div className='logged-out-nav-options'>
-          <div className='logged-out-nav-right'>
-            <NavLink
-              to='/authentication'
-              className='nav-link'
-              activeStyle={{
-                textDecoration: "underline",
-                color: '#6699CC'
-              }}>
-              Log In
+          <NavLink
+            to='/authentication'
+            className='nav-link'
+            activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Log In
           </NavLink>
-            <NavLink
-              to='/register'
-              className='nav-link'
-              activeStyle={{
-                textDecoration: "underline",
-                color: '#6699CC'
-              }}>
-              Register
+          <NavLink
+            to='/register'
+            className='nav-link'
+            activeStyle={{
+              textDecoration: "underline",
+              color: '#6699CC'
+            }}>
+            Register
           </NavLink>
-          </div>
         </div>
       </div>
     )

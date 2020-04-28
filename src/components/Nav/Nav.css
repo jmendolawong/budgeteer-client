@@ -3,7 +3,7 @@
   background-image:linear-gradient(to bottom right, #6699CC, #042F59);
   position: fixed;
   list-style-type: none;
-  text-align: center;
+ 
   display: inline-block;
   margin: 0;
   top: 0;
@@ -11,7 +11,6 @@
   right: 0;
   z-index: 10;
   padding: 3px;
-
 }
 
 .nav a {
@@ -20,7 +19,7 @@
   color: white;
 }
 
-a.home-nav {
+a.nav-home {
   display: block;
   font-size: 30px;
   font-weight: bold;
@@ -35,37 +34,39 @@ a.home-nav {
   margin-bottom: 5px;
 }
 
-.logged-out-nav {
-  text-align: right;
-  padding: 5px;
-  height: 100%;
-}
-
-.logged-out-home { 
-  float: left;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-
-.nav-right {
-  padding: 2px;
-  height: 100;
-}
-
 a.nav-link {
-  padding: 5px;
-  margin: 2px;
-  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .nav a:link {
   text-decoration: none;
 }
 
-.nav-right a:hover {
+.nav a:hover {
   color: #6699CC;
+}
+
+.logged-out-nav {
+  text-align: right;
+  padding: 5px;
+  height: 100%;
+}
+
+.logged-out-nav-options {
+  position: absolute; 
+  bottom: 25%; 
+  right: 10px;
+}
+
+.logged-out-home { 
+  float: left;
+}
+
+a.nav-link {
+  padding: 5px;
+  margin: 2px;
+  font-size: 15px;
 }
 
 
@@ -77,8 +78,9 @@ a.nav-link {
   .nav-options {
     text-align: right;
     justify-content: flex-end;
+    margin-bottom: 0;
   }
-
+  
   a.nav-link {
     padding: 5px;
     margin: 2px;
@@ -92,18 +94,13 @@ a.nav-link {
     color: white;
   }
 
-  a:hover {
-    color: #6699CC;
+  .logged-out-nav-options {
+    bottom: 0; 
   }
   
-  
-  a.home-nav {
+  a.nav-home {
     float: left;
     font-size: 1.5em;
   }
    
-  .nav a:hover {
-    color: #6699CC;
-  }
-
 }
