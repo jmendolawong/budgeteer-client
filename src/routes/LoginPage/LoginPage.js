@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import ValidationError from '../../components/ValidationError/ValidationError';
+
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import TransactionContext from '../../TransactionContext';
@@ -9,6 +11,12 @@ import './LoginPage.css';
 const jwt = require('jsonwebtoken')
 
 export default class LoginPage extends Component {
+  constructor(props){
+    super(props)
+    this.state ={ 
+      error: null,
+    }
+  }
 
   handleSubmitJwtAuth = e => {
     e.preventDefault()
@@ -29,7 +37,9 @@ export default class LoginPage extends Component {
         this.props.history.push(`/${account.user_id}`)
       })
       .catch(res => {
-        console.log(res.error)
+        this.setState({error: 'Incorrect username or password'})
+        user.value = ''
+        password.value = ''
       })
 
   }
@@ -40,7 +50,8 @@ export default class LoginPage extends Component {
 
     return (
       <div className='loginPage' >
-        <p id='register'>New to Budgeteer? <Link to='/register'>Sign up here</Link></p>
+        <p id='register'>New to Budgeteer? </p>
+        <p><Link to='/register'>Sign up here</Link></p>
         <form
           className="login-form"
           onSubmit={this.handleSubmitJwtAuth}>
@@ -52,6 +63,7 @@ export default class LoginPage extends Component {
             <label htmlFor='password'>Password: </label>
             <input type='password' id='password' name='password' />
           </div>
+          {this.state.error && <ValidationError message={this.state.error} />}
           <button type='submit'>Log In</button>
         </form>
       </div >

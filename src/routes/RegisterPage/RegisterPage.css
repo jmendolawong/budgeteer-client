@@ -9,6 +9,8 @@
   -ms-transform: translate(-50%, -50%);
   padding: 25px;
   max-width: 80%;
+  border: black 1px solid;
+  border-radius: 20px;
 }
 
 .register-form {
@@ -17,4 +19,9 @@
 
 .register-input {
   padding: 5px;
+}
+
+p#login {
+  padding-left: 2px;
+  padding-right: 2px;
 }

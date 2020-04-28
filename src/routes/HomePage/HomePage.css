@@ -1,16 +1,117 @@
 body {
-  background-color: #f5f5f5;
+  background-color: white;
+  color: black;
 }
 
-
-#fight {
+.section-header {
+  background-color: #042F59;
+  color: white;
   padding: 25px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-right: auto;
 }
 
-#fight h2 {
-  margin: 0;
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-img {
+.section-content > p {
+  margin: 15px auto 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.title-description {
+  margin: 15px auto; 
+}
+
+#money-control {
+  padding-top: 110px;
+}
+
+#logo-img {
   padding: 10px 10px 25px;
+}
+
+.header-wrapper{
+  position: relative;
+}
+
+
+img#scales, img#record, img#chart{
+  max-height: 5em;
+}
+
+.expense-header > img {
+  display: none;
+}
+
+.reporting-subsection > img {
+  display: none; 
+}
+
+@media only screen and (min-width: 768px){
+
+  .section-header {
+    max-width: 80%;
+    border-radius: 5px;
+    margin: 0px auto
+  }
+
+  .section-content {
+    max-width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  p {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h2 {
+   font-size: 40px;
+  }
+
+  .expenses {
+    display: flex;
+  }
+
+  .expense-header  {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .expense-header > h2 {
+    grid-column-start: 3;
+    grid-column-end: 9;
+  }
+  
+  .expense-header > img {
+    grid-column-start: 9;
+    display: unset;
+  }
+  
+  .reporting-subsection {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .reporting-subsection > img {
+    grid-column-start: 5;
+    display: unset;
+  }
+  
+  .reporting-subsection > h3 {
+    grid-column-start: 6;
+    grid-column-end: 8;
+  }
 }

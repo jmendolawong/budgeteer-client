@@ -3,26 +3,61 @@
   background-image:linear-gradient(to bottom right, #6699CC, #042F59);
   position: fixed;
   list-style-type: none;
-  text-align: right;
+  text-align: center;
   display: inline-block;
-  vertical-align: middle;
   margin: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
   padding: 3px;
+
 }
 
 .nav a {
-  display: inline-block;
-  vertical-align: middle;
+  vertical-align: text-bottom;
   margin: 3px 15px;
   color: white;
 }
 
-div.nav-links, .nav-right {
+a.home-nav {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+
+}
+
+.nav-options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+
+.logged-out-nav {
+  text-align: right;
+  padding: 5px;
   height: 100%;
+}
+
+.logged-out-home { 
+  float: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+.nav-right {
+  padding: 2px;
+  height: 100;
+}
+
+a.nav-link {
+  padding: 5px;
+  margin: 2px;
+  font-size: 15px;
 }
 
 .nav a:link {
@@ -33,24 +68,42 @@ div.nav-links, .nav-right {
   color: #6699CC;
 }
 
-a.home-nav {
-  float: left;
-  font-size: 30px;
-  font-weight: bold;
-}
 
-a.nav-link {
-}
+@media only screen and (min-width: 720px){
+  .nav {
+    text-align: right;
+  }
+
+  .nav-options {
+    text-align: right;
+    justify-content: flex-end;
+  }
+
+  a.nav-link {
+    padding: 5px;
+    margin: 2px;
+    font-size: 1.1em;
+  }
+   
+  .nav a {
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin: 3px 15px;
+    color: white;
+  }
+
+  a:hover {
+    color: #6699CC;
+  }
   
-header {
-  padding: 45px 15px;
-}
+  
+  a.home-nav {
+    float: left;
+    font-size: 1.5em;
+  }
+   
+  .nav a:hover {
+    color: #6699CC;
+  }
 
-p {
-  margin: 0 auto;
-  max-width: 600px;
-}
-
-p+p {
-  margin-top: 15px;
 }

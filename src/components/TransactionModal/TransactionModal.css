@@ -1,4 +1,50 @@
+header{
+  padding: 10px;
+}
+
 .new-transaction {
   height: 100%;
   width: 100%;
+}
+
+.new-transaction-form {
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-gap: .25em;
+  grid-template-columns: repeat(3, 30%);
+  grid-template-rows: repeat (8, 1fr);
+}
+
+.transaction-category {
+  grid-column: 1 / 4;
+}
+
+.transaction-date{
+  grid-column: 1 / 4;
+  grid-row-start: 2;
+}
+
+.transaction-cost {
+  grid-column: 1 / 4;
+  grid-row-start: 3;
+}
+
+.transaction-payee {
+  grid-column: 1 / 4;
+  grid-row-start: 4;
+}
+
+.transaction-memo {
+  grid-column: 1 / 4;
+  grid-row: 5 / 8
+}
+
+.transaction-close {
+  grid-row-start: 8;
+}
+
+.transaction-submit {
+  grid-column-start: 3;
+  grid-row-start: 8;
 }

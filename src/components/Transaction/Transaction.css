@@ -1,29 +1,59 @@
-* {
-  box-sizing: border-box;
+
+.transaction {
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #eee;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  color: #444;
-  text-align: center;
+.transaction-options {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-header {
-  padding: 25px 15px;
-}
 
-.expense {
-  min-height: 300;
-  padding: 25px;
-  border: black 1px solid;
-}
+@media only screen and (min-width: 420px){
+  .transaction {
+    display: flex;
+    flex-direction: column;
+    border: black solid 1px;
+    width: 80%;
+  }
 
-p {
-  margin: 0 auto;
-  max-width: 600px;
-}
+  .transaction-grid-wrapper {
+    width: 100%;
+    display: grid;
+    grid-gap: .5em;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+  }
+  
+  .item-category {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  
+  .item-date {
+    grid-column-start: 3;
+  }
+  
+  .item-payee {
+    grid-column-start: 4 / 5;
+  }
+  
+  -item-cost {
+    grid-column-start: 5;
+  }
 
-p+p {
-  margin-top: 15px;
+  header {
+    padding: 25px 15px;
+  }
+
+  .expense {
+    min-height: 300;
+    padding: 25px;
+    border: black 1px solid;
+  }
+
 }

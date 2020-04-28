@@ -102,6 +102,7 @@ export default class TransactionModal extends Component {
         className='modal'
       >
         <div className='new-transaction'>
+          <header>Add Transaction</header>
           <form className="new-transaction-form" onSubmit={e => this.handleSubmit(e)}>
             <div className='transaction-category'>
               <label htmlFor="category">Category*: </label>
@@ -127,8 +128,7 @@ export default class TransactionModal extends Component {
             </div>
 
             <div className="transaction-date">
-              <label htmlFor='date'>Date* </label>
-              <input type='text' id='cost' name="date" placeholder="e.g. 12/31/2020"
+              <input type='text' id='date' name="date" placeholder="e.g. 12/31/2020"
                 onChange={e => this.updateDate(e.target.value)} required="" />
               {this.state.date.touched && (
                 <ValidationError message={dateError} />
@@ -136,8 +136,7 @@ export default class TransactionModal extends Component {
             </div>
 
             <div className="transaction-cost">
-              <label htmlFor="cost">Cost*: $</label>
-              <input type='number' id='cost' name='cost' placeholder='25'
+              <input type='number' id='cost' name='cost' placeholder='Cost'
                 onChange={e => this.updateCost(e.target.value)} required />
               {this.state.cost.touched && (
                 <ValidationError message={costError} />
@@ -145,14 +144,23 @@ export default class TransactionModal extends Component {
             </div>
 
             <div className='transaction-payee'>
-              <label htmlFor='payee'>Payee: </label>
-              <input type='text' id='payee' name='payee' placeholder='Walmart' />
+              <input type='text' id='payee' name='payee' placeholder='Payee ' />
             </div>
 
             <div className="transaction-memo">
-              <label htmlFor='memo'>Memo: </label>
-              <textarea id='memo' name='memo' rows='3'></textarea>
+              <textarea 
+                id='memo' 
+                name='memo'
+                rows="4"
+                columns="30"
+                placeholder="memo/additional notes"></textarea>
             </div>
+
+            <button
+              className='transaction-close'
+              onClick={this.props.handleCloseModal}>
+              Close
+            </button>
 
             <button
               type='submit'
@@ -162,11 +170,11 @@ export default class TransactionModal extends Component {
                 this.validateCost() ||
                 this.validateDate()
               }
-            >Add transaction</button>
+            >Add</button>
+
           </form>
 
 
-          <button onClick={this.props.handleCloseModal}>Close</button>
         </div>
       </Modal>
     );

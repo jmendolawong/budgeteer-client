@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ValidationError from '../../components/ValidationError/ValidationError';
+
 import './RegisterPage.css';
 import AuthApiService from '../../services/auth-api-service';
 
@@ -37,10 +39,13 @@ export default class RegisterPage extends Component {
       })
   }
 
+  validate
+
   render() {
     return (
       <div className='registerPage'>
-        <p id='register'>Already have an account? <Link to='/authentication'>Log in.</Link></p>
+        <p id='login'>Already have an account? </p>
+        <p><Link to='/authentication'>Log in</Link></p>
         <form className="register-form" onSubmit={e => this.handleSubmit(e)}>
           <div className="register-input">
             <label htmlFor='username'>Username: </label>
@@ -49,6 +54,7 @@ export default class RegisterPage extends Component {
           <div className="register-input">
             <label htmlFor='password'>Password: </label>
             <input type='password' id='password' name='password' />
+            {this.state.error && <ValidationError message={this.state.error}/>}
           </div>
           <button type='submit' id='register-submit'>Sign Up</button>
         </form>
