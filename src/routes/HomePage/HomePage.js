@@ -12,8 +12,8 @@ export default function HomePage() {
       <header role="banner" id='money-control' >
         <div className='header-wrapper'>
           <div className='header-center'>
-            <h2 className='scales'>Tip the financial scales in your favor</h2><span>
-              <img src={Scales} alt='money scales' id='scales' /></span>
+            <h2 className='scales'>Tip the financial scales in your favor</h2>
+            <span><img src={Scales} alt='money scales' id='scales' /></span>
           </div>
         </div>
         <div className='title-description'>

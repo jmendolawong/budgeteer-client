@@ -1,11 +1,16 @@
 body {
-  background-color: white;
-  color: black;
+  /*background-color: white;*/
+  background-image: url('../../images/pig-bg.png'), url('../../images/blackboard-big.jpg');
+  background-repeat: no-repeat, repeat;
+  background-position: left bottom;
+  background-attachment: fixed;
+  background-size: 418px 190px, 100% 100%;
+  color: white;
 }
 
 
 .section-header {
-  background-color: #042F59;
+  background-image:linear-gradient(to bottom right, #6699CC, #042F59);
   color: white;
   padding: 25px;
   margin-bottom: 15px;

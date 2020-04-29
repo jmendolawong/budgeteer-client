@@ -4,6 +4,7 @@ import Transaction from '../../components/Transaction/Transaction';
 import TransactionContext from '../../TransactionContext';
 import config from '../../config';
 import TokenService from '../../services/token-service';
+import Piggy from '../../images/piggy-trans.png'
 
 import './AccountPage.css';
 
@@ -44,6 +45,7 @@ export default class AccountPage extends Component {
       <div className='account'>
         <header className='account-title' role="banner">
           <h2>Current Transactions</h2>
+          <img src={Piggy} alt='piggy bank' id='piggy' />
         </header>
         <div className='transaction-list'>
           {transactions.map(transaction =>

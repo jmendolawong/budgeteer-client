@@ -9,7 +9,7 @@
   -ms-transform: translate(-50%, -50%);
   padding: 25px;
   max-width: 80%;
-  border: black 1px solid;
+  border: white 1px solid;
   border-radius: 20px;
 }
 
@@ -28,6 +28,12 @@ p {
 
 a {
   font-size: 14px;
+  color: #6699CC;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 button {

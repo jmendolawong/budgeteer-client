@@ -57,14 +57,6 @@ export default class Nav extends Component {
 
           <Link to='#' className='nav-link' onClick={this.handleTransModal}>+Transaction</Link>
 
-          <NavLink
-            to={`/${this.context.accountId}/reports`}
-            className='nav-link' activeStyle={{
-              textDecoration: "underline",
-              color: '#6699CC'
-            }}>
-            Reports
-            </NavLink>
           <Link
             exact='true'
             to='/'

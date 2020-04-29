@@ -1,7 +1,27 @@
 .account-title {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  justify-items: center;
+  align-items: center;
   padding-top: 110px;
   padding-bottom: 25px;
+  margin-bottom: 15px;
+
 }
+.account-title > h2 {
+  grid-column-start: 4;
+  grid-column-end: 8;
+}
+
+.account-title > img {
+  grid-column-start: 8;
+  display: unset;
+}
+
+img#piggy {
+  max-height: 5em;
+}
+
 
 h2 {
   margin-top: 10px;

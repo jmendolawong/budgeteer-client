@@ -1,6 +1,7 @@
 
 .nav {
-  background-image:linear-gradient(to bottom right, #6699CC, #042F59);
+  /*background-image:linear-gradient(to bottom right, #6699CC, #042F59);*/
+  background-color: #F4D74F;
   position: fixed;
   list-style-type: none;
  
@@ -16,10 +17,11 @@
 .nav a {
   vertical-align: text-bottom;
   margin: 3px 15px;
-  color: white;
+  color: #042F59;
 }
 
 a.nav-home {
+  font-family: 'CherrySwash';
   display: block;
   font-size: 30px;
   font-weight: bold;
@@ -35,6 +37,7 @@ a.nav-home {
 }
 
 a.nav-link {
+  font-family: 'CherrySwash';
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -70,7 +73,7 @@ a.nav-link {
 }
 
 
-@media only screen and (min-width: 720px){
+@media only screen and (min-width: 700px){
   .nav {
     text-align: right;
   }
@@ -91,16 +94,21 @@ a.nav-link {
     display: inline-block;
     vertical-align: text-bottom;
     margin: 3px 15px;
-    color: white;
+    color: #042F59;
   }
 
   .logged-out-nav-options {
     bottom: 0; 
   }
-  
+
+  .nav-options {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+  }
+    
   a.nav-home {
     float: left;
-    font-size: 1.5em;
+    font-size: 40px;   
   }
-   
 }
