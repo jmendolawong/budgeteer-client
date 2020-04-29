@@ -2,6 +2,10 @@ header{
   padding: 10px;
 }
 
+.modal {
+  background-color: #042F59;
+}
+
 .new-transaction {
   height: 100%;
   width: 100%;
