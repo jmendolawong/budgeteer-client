@@ -119,15 +119,3 @@ export default class Nav extends Component {
     )
   }
 }
-
-/*
-<NavLink
-          exact={true}
-          to='/'
-          className='nav-link' activeStyle={{
-            textDecoration: "underline",
-            color: '#6699CC'
-          }}>
-          Log out
-          </NavLink>
-          */

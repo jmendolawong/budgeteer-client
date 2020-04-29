@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function NotFoundPage() {
 
   return (
@@ -8,7 +7,6 @@ export default function NotFoundPage() {
       <h2>Erorr: you've stubmled on a lost page</h2>
     </div>
   )
-
 }
 
 

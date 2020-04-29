@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
 import TransactionContext from '../../TransactionContext';
 import './Transaction.css';
 import TransactionApiService from '../../services/transaction-api-service';
 
 export default class Transaction extends Component {
   static contextType = TransactionContext;
-
 
   render() {
     return (
@@ -29,7 +27,6 @@ export default class Transaction extends Component {
               }}>Delete</button>
           </div>
         </div>
-
       </div >
     );
   }

@@ -5,9 +5,6 @@ import ValidationError from '../ValidationError/ValidationError';
 
 import TransactionContext from '../../TransactionContext';
 import TransactionApiService from '../../services/transaction-api-service';
-//import { addTransaction } from '../../transactionHelper';
-//import { useHistory } from 'react-router-dom'
-//import config from '../../config';
 
 import '../Modal.css';
 import './TransactionModal.css';
@@ -82,7 +79,6 @@ export default class TransactionModal extends Component {
   }
 
   static contextType = TransactionContext;
-
 
   render() {
     const costError = this.validateCost()
@@ -168,10 +164,8 @@ export default class TransactionModal extends Component {
                 this.validateDate()
               }
             >Add</button>
-
+            
           </form>
-
-
         </div>
       </Modal>
     );
