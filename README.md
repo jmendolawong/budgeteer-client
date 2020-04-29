@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Budgeteer
 
-## Available Scripts
+## Introduction
+Budgeteer is an experimental React application for expense tracking. 
+Budgeteer utilizes authentication for accounts, allowing users to categorize, date and record expenses.
 
-In the project directory, you can run:
+![Home Page](./public/images/home.jpg)
 
-### `npm start`
+#### Click [here](https://budgeteer-app.now.sh/) to test out the app 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How it works
+There is a landing page for all first time and returning users. Any new users can register with a username and password.
+Returning users can input their credentials to return to their protected account. 
+Adding a transaction pops up a modal that asks for a category, date, cost, and optional payees and memos for the transaction.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Catalog](./public/images/catalog.jpg)
 
-### `npm test`
+![Add Recipe](./public/images/add_recipe.jpg)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Recipe](./public/images/recipe.jpg)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started with the Client
+### Installing
+Clone the repository and download dependencies.
+```
+$ git clone https://github.com/jmw7/budgeteer-client.git
+$ cd recipe-client
+$ npm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Launching
+Start development server
+```
+$ npm run dev
+```
+This will automatically open a browser window with the project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Testing
+Run tests with Jest and Enzyme
+```
+$ npm run test
+```
 
-### `npm run eject`
+## Database
+To access the database use the URL below to connect to the client
+ - https://calm-taiga-41329.herokuapp.com
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Methods
+  GET || POST || DELETE
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Parameters
+ - /api/authentication
+ - /api/users/
+ - /api/:accountId
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Response
+ - Post success response: 201
+ - Delete success response: 204
+ - Post error response: 400
+ - Authentication errror response: 401
+ - Not found error response: 404
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Built with
+ - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
+ - [React](https://reactjs.org/)
+ - [Node.js](https://nodejs.org/en/)
+ - [PostgreSQL](https://www.postgresql.org/)
+ - [Knex.js](http://knexjs.org/)
