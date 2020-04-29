@@ -33,10 +33,13 @@ export default class RegisterPage extends Component {
       .then(() => {
         username.value = ''
         password.value = ''
+        this.props.history.push(`/authentication`)
       })
       .catch(res => {
         this.setState({ error: res.error })
       })
+
+      
   }
 
   validate
