@@ -43,20 +43,17 @@ export default class TransactionModal extends Component {
     this.props.handleCloseModal();
   }
 
-
   updateCategory(category) {
     this.setState({
       category: { value: category, touched: true }
     })
   }
 
-
   validateCategory() {
     const category = this.state.category.value
     if (category === "")
       return 'Select a category'
   }
-
 
   updateDate(date) {
     this.setState({
