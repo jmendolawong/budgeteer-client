@@ -4,8 +4,7 @@
 Budgeteer is an experimental React application for expense tracking. 
 Budgeteer utilizes authentication for accounts, allowing users to categorize, date and record expenses.
 
-![Home Page](./public/images/home1.png)
-![Home Page2](./public/images/home2.png)
+![Home Page](./public/images/home.png)
 
 #### Click [here](https://budgeteer-app.now.sh/) to test out the app 
 
