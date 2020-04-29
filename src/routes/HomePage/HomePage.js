@@ -7,6 +7,8 @@ import Chart from '../../images/chart.png';
 
 export default function HomePage() {
 
+  const str = '<p>Want to try it out before registering? Use our demo account.<br>Username: <em>testUser</em><br>Password: <em>password</em></br></p>'
+
   return (
     <div className='homePage'>
       <header role="banner" id='money-control' >
@@ -41,6 +43,16 @@ export default function HomePage() {
           <p>Record all your purchases. Group your expenses into categories. Record who you're paying. Make notes and memos. Your future self will thank you.</p>
         </div>
       </section>
+
+      <section>
+        <header className='section-header test-header'>
+          <h2>Try out the demo</h2>
+        </header>
+        <div className='section-content expenses'>
+          <p dangerouslySetInnerHTML={{ __html: str }}/>
+        </div>
+      </section>
+
 
       <section>
         <header className='section-header' >

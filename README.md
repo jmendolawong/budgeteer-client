@@ -69,3 +69,11 @@ To access the database use the URL below to connect to the client
  - [Node.js](https://nodejs.org/en/)
  - [PostgreSQL](https://www.postgresql.org/)
  - [Knex.js](http://knexjs.org/)
+
+ ## Images
+ - "[Justice]"(https://thenounproject.com/scribble.liners/collection/finance/?i=2044978) by Scribble.liners from [the Noun Project] (https://thenounproject.com/)
+ - "[Budgeting]"(https://thenounproject.com/term/budgeting/2009557/) by Scribble.liners from [the Noun Project] (https://thenounproject.com/)
+ - "[Chart]"(https://thenounproject.com/term/chart/1970984/) by Scribble.liners from [the Noun Project] (https://thenounproject.com/)
+ - "[Piggy Bank]"(https://thenounproject.com/search/?q=piggy%20bank&i=2976170) by alison from [the Noun Project] (https://thenounproject.com/)
+ - [Piggy Bank - background](https://downpaymentresource.com/wp-content/uploads/2017/04/iStock-508660880-e1492534133806.jpg)
+- [Fist of money](https://www.clipart.email/download/1316317.html)
