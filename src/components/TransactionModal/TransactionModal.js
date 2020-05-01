@@ -150,7 +150,7 @@ export default class TransactionModal extends Component {
             </div>
 
             <button
-              className='transaction-close'
+              className='transaction-close btn'
               onClick={this.props.handleCloseModal}>
               Close
             </button>
