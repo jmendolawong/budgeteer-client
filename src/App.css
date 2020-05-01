@@ -12,6 +12,19 @@ body {
   text-align: center;
 }
 
+.btn {
+  height: 35px;
+  width: 70px;
+  font-weight: bold;
+  background-color: #F4D74F;
+  color: #042F59;
+  border: 2px #042F59 solid;
+  border-radius: 5px;
+  transition-property: top;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

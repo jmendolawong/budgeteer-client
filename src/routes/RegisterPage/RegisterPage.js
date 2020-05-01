@@ -59,7 +59,7 @@ export default class RegisterPage extends Component {
             <input type='password' id='password' name='password' />
             {this.state.error && <ValidationError message={this.state.error}/>}
           </div>
-          <button type='submit' id='register-submit'>Sign Up</button>
+          <button type='submit' className='btn' id='register-submit'>Sign Up</button>
         </form>
       </div >
     );

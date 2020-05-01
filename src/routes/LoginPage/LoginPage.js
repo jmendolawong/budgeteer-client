@@ -64,7 +64,7 @@ export default class LoginPage extends Component {
             <input type='password' id='password' name='password' />
           </div>
           {this.state.error && <ValidationError message={this.state.error} />}
-          <button type='submit'>Log In</button>
+          <button type='submit' className='btn'>Log In</button>
         </form>
       </div >
     );

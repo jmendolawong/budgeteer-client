@@ -50,7 +50,7 @@ export default class Nav extends Component {
             className='nav-link'
             activeStyle={{
               textDecoration: "underline",
-              color: '#6699CC'
+              color: '#6699CC',
             }}>
             Account
             </NavLink>

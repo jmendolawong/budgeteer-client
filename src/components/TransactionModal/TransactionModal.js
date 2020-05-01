@@ -157,7 +157,7 @@ export default class TransactionModal extends Component {
 
             <button
               type='submit'
-              className='transaction-submit'
+              className='transaction-submit btn'
             >Add</button>
 
           </form>
