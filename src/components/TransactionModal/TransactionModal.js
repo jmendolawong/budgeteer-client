@@ -17,32 +17,42 @@ export default class TransactionModal extends Component {
     this.state = {
       category: {
         value: '',
-        touched: false,
       },
       date: {
         value: '',
-        touched: false,
       },
       cost: {
         value: '',
-        touched: false
       },
-      error: null
+      categoryError: '',
+      dateError: '',
+      costError: '',
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const { category, date, cost } = this.state
-    const payee = e.target.payee.value
-    const memo = e.target.memo.value
-    TransactionApiService.addTransaction(this.context.addTransaction, this.context.accountId, category.value, date.value, cost.value, payee, memo);
-    this.props.handleCloseModal();
+
+    if (this.validateCategory()) {
+      this.setState({ categoryError: this.validateCategory() })
+    } else if (this.validateDate()) {
+      this.setState({ categoryError: '', dateError: this.validateDate() })
+    } else if (this.validateCost()) {
+      this.setState({ categoryError: '', dateError: '', costError: this.validateCost() })
+    }
+    else {
+      this.setState({ categoryError: '', dateError: '', costError: '', category: {value: '' }})
+      const { category, date, cost } = this.state
+      const payee = e.target.payee.value
+      const memo = e.target.memo.value
+      TransactionApiService.addTransaction(this.context.addTransaction, this.context.accountId, category.value, date.value, cost.value, payee, memo);
+      this.props.handleCloseModal();
+    }
   }
 
   updateCategory(category) {
     this.setState({
-      category: { value: category, touched: true }
+      category: { value: category }
     })
   }
 
@@ -54,7 +64,7 @@ export default class TransactionModal extends Component {
 
   updateDate(date) {
     this.setState({
-      date: { value: date, touched: true }
+      date: { value: date }
     })
   }
 
@@ -63,12 +73,12 @@ export default class TransactionModal extends Component {
     if (date.length === 0)
       return 'Date is required'
     if (!date.match(REGEX_DATE))
-      return 'Enter date in the format: MM/DD/YYYY'
+      return 'Error - date format must be MM/DD/YYYY'
   }
 
   updateCost(cost) {
     this.setState({
-      cost: { value: cost, touched: true }
+      cost: { value: cost }
     })
   }
 
@@ -81,10 +91,6 @@ export default class TransactionModal extends Component {
   static contextType = TransactionContext;
 
   render() {
-    const costError = this.validateCost()
-    const dateError = this.validateDate()
-    const categoryError = this.validateCategory()
-
     return (
       <Modal
         isOpen={this.props.isOpen}
@@ -103,7 +109,7 @@ export default class TransactionModal extends Component {
                 value={this.state.category.value}
                 onChange={e => this.updateCategory(e.target.value)}
                 id="category" name='category' >
-                <option value="" disabled>Select one</option>
+                <option value="" defaultValue>Select one</option>
                 <option value="Shopping">Shopping</option>
                 <option value="Groceries">Groceries</option>
                 <option value="Gym">Gym</option>
@@ -115,25 +121,19 @@ export default class TransactionModal extends Component {
                 <option value="Entertainment">Entertainment</option>
                 <option value="Bills & Utilities">Bills & Utilities</option>
               </select>
-              {this.state.category.touched && (
-                <ValidationError message={categoryError} />
-              )}
+              {<ValidationError message={this.state.categoryError} />}
             </div>
 
             <div className="transaction-date">
               <input type='text' id='date' name="date" placeholder="e.g. 12/31/2020"
                 onChange={e => this.updateDate(e.target.value)} required="" />
-              {this.state.date.touched && (
-                <ValidationError message={dateError} />
-              )}
+              {<ValidationError message={this.state.dateError} />}
             </div>
 
             <div className="transaction-cost">
               <input type='number' id='cost' name='cost' placeholder='Cost'
-                onChange={e => this.updateCost(e.target.value)} required />
-              {this.state.cost.touched && (
-                <ValidationError message={costError} />
-              )}
+                onChange={e => this.updateCost(e.target.value)} />
+              {<ValidationError message={this.state.costError} />}
             </div>
 
             <div className='transaction-payee'>
@@ -141,8 +141,8 @@ export default class TransactionModal extends Component {
             </div>
 
             <div className="transaction-memo">
-              <textarea 
-                id='memo' 
+              <textarea
+                id='memo'
                 name='memo'
                 rows="4"
                 columns="30"
@@ -158,13 +158,8 @@ export default class TransactionModal extends Component {
             <button
               type='submit'
               className='transaction-submit'
-              disabled={
-                this.validateCategory() ||
-                this.validateCost() ||
-                this.validateDate()
-              }
             >Add</button>
-            
+
           </form>
         </div>
       </Modal>
