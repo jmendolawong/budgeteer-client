@@ -34,7 +34,7 @@ $ npm install
 ### Launching
 Start development server
 ```
-$ npm run dev
+$ npm run start
 ```
 This will automatically open a browser window with the project
 
